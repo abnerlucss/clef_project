@@ -1,0 +1,122 @@
+/* IMPORTANDO A FONTE */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 2.5vh;
+    color: var(--black);
+    margin: 0;
+    padding: 0;
+    height: 200vh;
+    /* overflow: hidden; */
+}
+
+/* VARIÁVEIS GLOBAIS */
+
+:root {
+    --white: #FFF;
+    --primary-color: #385684;
+    --secondary-color: #418DFF;
+    --light-grey: #e5e5e5;
+    --confirm-color: #51bb4f;
+    --cancel-color: #e5383b;
+    --black: rgba(43, 43, 43);
+    --blue-gradient: linear-gradient(253.41deg, #418DFF 24%, rgba(255, 255, 255, 0) 101.73%), #385684;
+    /* ON HOVER COLORS */
+    --h-primary-color: #2d466b;
+    --h-secondary-color: #3c7ee2;
+    --h-light-grey: #e5e5e5;
+    --h-confirm-color: #4baf49;
+    --h-cancel-color: #d33234;
+}
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    height: 20vh;
+}
+
+/* NAVBAR */
+
+.navbar {
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0px 3px 8px 0px var(--light-grey);
+    margin-bottom: 5vh;
+}
+
+/* LOGO DO NAVBAR */
+
+.nav-logo a img {
+    height: 10vh;
+}
+
+/*MENU DO NAVBAR */
+
+.navbar-menu ul a {
+    text-decoration: none;
+    color: var(--black);
+    padding: 5vh 2vw;
+    transition: 0.2s;
+}
+
+.navbar-menu ul a:hover {
+    border-bottom: solid 3px var(--primary-color);
+}
+
+.navbar-menu ul a li {
+    display: inline;
+}
+
+/* BOTÕES DO NAVBAR */
+
+.navbar-buttons {
+    width: 12vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-buttons button {
+    font-size: inherit;
+    height: 4.5vh;
+    margin: 5px;
+    padding: 0 10px;
+    /* width: 7vw; */
+    border: none;
+    border-radius: 2px;
+    color: var(--white);
+    background: var(--blue-gradient);
+    transition: 0.2s;
+}
+
+.navbar-buttons button:hover {
+    background-color: var(--h-primary-color);
+    cursor: pointer;
+}
+
+/* JUMBOTRON */
+.jumbotron{
+    width: 100%;
+    height: 58vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(../img/jumbotron/img5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -2; 
+}
