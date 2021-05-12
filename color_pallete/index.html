@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Colors</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+    * {
+        box-sizing: border-box;
+        font-family: 'noto sans';
+        font-size: 3vh;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        color: rgb(43, 43, 43);
+
+    }
+
+    img {
+        height: 15vh;
+    }
+
+    nav {
+        padding: 0 3%;
+        height: 16vh;
+        display: flex;
+        align-items: center;
+    }
+
+    section {
+        background-color: rgba(0, 0, 0, 0.61);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 60vh;
+        width: 100%;
+        flex-wrap: wrap;
+        /* border: solid 1px black; */
+    }
+
+    .color {
+        width: 10vw;
+        height: 80%;
+        border: inherit;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        color: white;
+        transition: 0.5s;
+        
+    }
+
+    .color:hover {
+        cursor: pointer;
+        transform: translate(-2px, -20px);
+
+    }
+
+    .secundary {
+        background-color: #385684;
+    }
+
+    .tertiary {
+        background-color: #418DFF;
+    }
+
+    .primary {
+        background-color: #FFF;
+        color: rgb(43, 43, 43);
+    }
+
+    .blue-button {
+        background: linear-gradient(253.41deg, #418DFF 24%, rgba(255, 255, 255, 0) 101.73%), #385684;
+    }
+
+    .grey {
+        background-color: #e5e5e5;
+        color: rgb(43, 43, 43);
+    }
+
+    .confirmation {
+        background-color: #51bb4f;
+    }
+
+    .negation {
+        background-color: #e5383b;
+    }
+
+    .black {
+        background-color: rgb(43, 43, 43);
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <img src="logo-clef.svg" alt="">
+        </nav>
+    </header>
+    <h1>Paleta de Cores</h1>
+    <section>
+        <div class="color primary">Cor primária</div>
+        <div class="color secundary">Cor secundária</div>
+        <div class="color tertiary">Cor Terciária</div>
+        <div class="color grey">Cinza claro</div>
+        <div class="color confirmation">Confirmar</div>
+        <div class="color negation">Cancelar</div>
+        <div class="color blue-button">Gradiente botões</div>
+        <div class="color black">Preto padrão</div>
+    </section>
+    <h4>By Abner Lucas</h4>
+</body>
+
+</html>
