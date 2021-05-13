@@ -4,16 +4,15 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    box-sizing: border-box;
     font-family: 'Noto Sans', sans-serif;
     font-size: 2.5vh;
     color: var(--black);
     margin: 0;
     padding: 0;
-    /* height: 200vh; */
 }
 
 /* VARIÁVEIS GLOBAIS */
@@ -76,7 +75,7 @@ body {
 /* LOGO DO NAVBAR */
 
 .nav-logo a img {
-    height: 10vh;
+    height: 12vh;
 }
 
 /*MENU DO NAVBAR */
@@ -96,20 +95,19 @@ body {
     display: inline;
 }
 
-/* BOTÕES DO NAVBAR */
-
 .navbar-buttons {
     width: 12vw;
     display: flex;
     justify-content: space-between;
 }
 
-.navbar-buttons button {
+/* Botões azuis */
+
+.blue-button {
     font-size: inherit;
-    height: 4.5vh;
+    height: 5vh;
     margin: 5px;
-    padding: 0 10px;
-    /* width: 7vw; */
+    padding: 0 15px;
     border: none;
     border-radius: 2px;
     color: var(--white);
@@ -117,7 +115,7 @@ body {
     transition: 0.2s;
 }
 
-.navbar-buttons button:hover {
+.blue-button:hover {
     background-color: var(--h-primary-color);
     cursor: pointer;
 }
@@ -139,18 +137,22 @@ body {
 }
 
 /* CONTAINER */
-.container{
+
+.container {
     width: 80%;
     margin: auto;
 }
+
 /* SECTIONS */
-section{
+
+section {
     padding: 5% 0;
     text-align: justify;
 }
 
 /* RODAPÉ */
-footer{
+
+footer {
     margin-top: 3%;
     height: 20vh;
     width: 100%;
@@ -162,10 +164,52 @@ footer{
     background-color: var(--black);
 }
 
-footer img{
+footer img {
     height: 10vh;
 }
 
-footer p a{
+footer p a {
     color: inherit;
+}
+
+/* LOGIN PAGE */
+
+.login-container {
+    margin: auto;
+    height: 70vh;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 3px 3px 5px 2px #ccc;
+}
+
+.form-login {
+    width: 60%;
+    padding: 10%;
+}
+
+.custom-input {
+    height: 25px;
+    min-width: 100px;
+    width: 80%;
+    color: var(--black);
+    border: none;
+    border-bottom: solid 0.4vh var(--secondary-color);
+    padding: 0 20px;
+    transition: 0.2s;
+    font-size: inherit;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-bottom-color: var(--primary-color);
+}
+
+.login-img {
+    height: 100%;
+    width: 40%;
+    background-color: #2d466b;
+    background-image: url(../img/jumbotron/img3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
