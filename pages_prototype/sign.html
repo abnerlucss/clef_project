@@ -33,25 +33,32 @@
                 </ul>
             </div>
             <div class="navbar-buttons">
-                <a href="./sign.html">
-                    <button class="blue-button">Cadastrar</button>
+                <a href="./login.html">
+                    <button class="blue-button">Entrar</button>
                 </a>
             </div>
         </div>
     </div>
     <main>
-        <div class="form-container">
-            <form class="form-login" id="form_login" method="post" onsubmit="return entrar()">
-                <h2 class="form-title">Entrar</h2>
+        <div class="sign-container">
+            <form class="form-login" id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <h2 class="form-title">Criar conta</h2>
 
-                Usuário ou Email
-                <input class="custom-input" type="text" name="login">
+                Nome completo
+                <input type="text" name="nome" class="custom-input" required minlength="4">
+
+                Email
+                <input type="email" name="email" class="custom-input" required minlength="4">
+
+                Login
+                <input type="text" name="login_html" class="custom-input" required minlength="4">
 
                 Senha
-                <input class="custom-input" type="password" name="senha">
+                <input type="password" name="senha" class="custom-input" required minlength="4">
 
-                <button id="btn_entrar" class="blue-button">Entrar</button>
+                <input type="submit" id="btn_entrar" value="Cadastrar" class="blue-button">
             </form>
+
         </div>
     </main>
     <footer>
