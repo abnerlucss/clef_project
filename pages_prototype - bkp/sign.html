@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+
+    <link rel="shortcut icon" href="./img/logos/icon-logo-clef.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login_sign.css">
+    <script src="./scripts/sign.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="./index.html">
+                    <img src="./img/logos/logo-clef.svg" alt="">
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <ul>
+                    <a href="./index.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="">
+                        <li>Posts</li>
+                    </a>
+                    <a href="">
+                        <li>Sobre</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="navbar-buttons">
+                <a href="./login.html">
+                    <button class="blue-button">Entrar</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="sign-container">
+            <form class="custom-form" id="form_sign" method="post" onsubmit="return sign()">
+                <h2 class="form-title">Criar conta</h2>
+
+                Nome completo
+                <input type="text" name="nome" class="custom-input">
+
+                Email
+                <input type="text" name="email" class="custom-input">
+
+                Login
+                <input type="text" name="login_html" class="custom-input">
+
+                Senha
+                <input type="password" name="senha" class="custom-input">
+
+                <input type="submit" id="btn_sign" value="Cadastrar" class="blue-button">
+
+                <img src="img/load-gifs/loading.gif" id="loadGif" class="load-gif hidden">
+
+                <div id="error_msg" class="error-message">
+                    
+                </div>
+            </form>
+
+            
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Desenvolvido por <a href="https://github.com/abnerlucss" target="_blank">Abner Lucas</a></p>
+        <img src="img/logos/white-logo-clef.svg" alt="">
+    </div>
+</body>
+
+</html>
