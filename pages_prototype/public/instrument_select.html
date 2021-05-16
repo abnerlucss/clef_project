@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu instrumento</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="./img/logos/icon-logo-clef.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/instruments.css">
+    <script src="./scripts/instrument_select.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="navbar">
+            <div class="nav-logo">
+                <a class="link-disable" href="">
+                    <img src="./img/logos/logo-clef.svg" alt="">
+                </a>
+            </div>
+            <div class="navbar-menu hidden">
+                <ul>
+                    <a href="">
+                        <li>Home</li>
+                    </a>
+                    <a href="">
+                        <li>Posts</li>
+                    </a>
+                    <a href="">
+                        <li>Sobre</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="navbar-buttons hidden">
+                <a href="./sign.html">
+                    <button class="blue-button">Cadastrar</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content center">
+        <h2>Escolha seu instrumento favorito</h2>
+
+        <div class="selection-vote" id="selection-instrument">
+            <div onclick="favorite(this)" class="card-selection piano">
+                Piano
+                <span class="material-icons">favorite_border</span>
+            </div>
+
+            <div onclick="favorite(this)" class="card-selection guitar">
+                Guitarra
+                <span class="material-icons">favorite_border</span>
+            </div>
+
+            <div onclick="favorite(this)" class="card-selection bass">
+                Contrabaixo
+                <span class="material-icons">favorite_border</span>
+            </div>
+
+            <div onclick="favorite(this)" class="card-selection drum">
+                Bateria
+                <span class="material-icons">favorite_border</span>
+            </div>
+
+            <div onclick="favorite(this)" class="card-selection sax">
+                Saxofone
+                <span class="material-icons">favorite_border</span>
+            </div>
+
+            <div onclick="favorite(this)" class="card-selection violin">
+                Violino
+                <span class="material-icons">favorite_border</span>
+            </div>
+
+            <div onclick="favorite(this)" class="card-selection flute">
+                Flauta
+                <span class="material-icons">favorite_border</span>
+            </div>
+
+            <div onclick="favorite(this)" class="card-selection acoustic-guitar">
+                Violão
+                <span class="material-icons">favorite_border</span>
+            </div>
+
+        </div>
+        <br>
+        <button onclick="set_as_favorite()" class="blue-button">Avançar</button>
+        <br>
+        <img class="load-gif" src="./img/load-gifs/loading.gif">
+        <div id="error_msg" class="error-message">
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>Desenvolvido por <a href="https://github.com/abnerlucss" target="_blank">Abner Lucas</a></p>
+        <img src="img/logos/white-logo-clef.svg" alt="">
+    </div>
+</body>
+
+</html>

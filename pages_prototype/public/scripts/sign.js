@@ -10,7 +10,7 @@ function sign() {
 
         if (response.ok) {
 
-            window.location.href = '../login.html';
+            window.location.replace('instrument_select.html');
 
         } else {
 

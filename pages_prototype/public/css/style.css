@@ -22,9 +22,11 @@ body {
     --primary-color: #385684;
     --secondary-color: #418DFF;
     --light-grey: #e5e5e5;
+    --grey: #6e6e6e;
     --confirm-color: #51bb4f;
     --cancel-color: #e5383b;
     --black: rgba(43, 43, 43);
+    --image-darken: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5));
     --blue-gradient: linear-gradient(253.41deg, #418DFF 24%, rgba(255, 255, 255, 0) 101.73%), #385684;
     /* ON HOVER COLORS */
     --h-primary-color: #2d466b;
@@ -48,6 +50,29 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: var(--blue-gradient);
+}
+
+/* GIF DE CARREGAMENTO */
+
+.load-gif {
+    height: 40px;
+    width: 40px;
+    margin: 0 auto;
+    visibility: hidden;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visble {
+    visibility: visible;
+}
+
+/* DESABILITAR LINKS */
+.link-disable{
+    pointer-events: none;
+    color: inherit;
 }
 
 /* HEADER */
@@ -122,12 +147,22 @@ body {
     cursor: pointer;
 }
 
+/* MENSAGENS DE ERRO DO FORM*/
+
+.error-message{
+    height: 8vh;
+    width: 100%;
+    margin: 10px 0;
+    background-color: var(--light-grey);
+    display: none;
+}
+
 /* JUMBOTRON */
 
 .jumbotron {
     width: 100%;
     height: 58vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)), url(../img/pictures/img5.jpg);
+    background-image: var(--image-darken), url(../img/pictures/img5.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -138,10 +173,10 @@ body {
     margin-bottom: 3%;
 }
 
-
-.main-content{
+.main-content {
     user-select: none;
 }
+
 /* CONTAINER */
 
 .container {
@@ -177,5 +212,3 @@ section {
 .footer p a {
     color: inherit;
 }
-
-

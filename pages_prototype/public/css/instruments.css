@@ -1,0 +1,66 @@
+.selection-vote {
+    background-color: var(--grey);
+    display: flex;
+    padding: 5% 0;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card-selection {
+    margin: 5px;
+    min-width: 120px;
+    width: 11%;
+    height: 50vh;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+    transition: 0.15s;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-selection:hover {
+    cursor: pointer;
+    transform: translate(-2px, -12px);
+}
+
+.piano {
+    background-image: url(../img/instruments/piano.jpg);
+}
+
+.guitar {
+    background-image: url(../img/instruments/guitarra.jpg);
+}
+
+.bass {
+    background-image: url(../img/instruments/bass.jpg);
+}
+
+.drum {
+    background-image: url(../img/instruments/drums.jpg);
+}
+
+.sax {
+    background-image: url(../img/instruments/sax.jpg);
+}
+
+.violin {
+    background-image: url(../img/instruments/violin.jpg);
+}
+
+.flute {
+    background-image: url(../img/instruments/flauta.jpg);
+}
+
+.acoustic-guitar {
+    background-image: url(../img/instruments/acoustic-guitar.jpg);
+}
+
+.center{
+    text-align: center;
+}
