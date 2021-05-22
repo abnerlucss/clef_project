@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -11,11 +11,12 @@
     <link rel="shortcut icon" href="./img/logos/icon-logo-clef.svg" type="image/x-icon">
 
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/instruments.css">
-    <script src="./scripts/instrument_select.js"></script>
+    <link rel="stylesheet" href="./css/select_instruments.css">
+    <script src="./scripts/sign.js"></script>
+
 </head>
 
-<body>
+<body onload="loadInstruments()">
 
     <div class="header">
         <div class="navbar">
@@ -48,52 +49,11 @@
     <div class="main-content center">
         <h2>Escolha seu instrumento favorito</h2>
 
-        <div class="selection-vote" id="selection-instrument">
-            <div onclick="favorite(this)" class="card-selection piano">
-                Piano
-                <span class="material-icons">favorite_border</span>
-            </div>
-
-            <div onclick="favorite(this)" class="card-selection guitar">
-                Guitarra
-                <span class="material-icons">favorite_border</span>
-            </div>
-
-            <div onclick="favorite(this)" class="card-selection bass">
-                Contrabaixo
-                <span class="material-icons">favorite_border</span>
-            </div>
-
-            <div onclick="favorite(this)" class="card-selection drum">
-                Bateria
-                <span class="material-icons">favorite_border</span>
-            </div>
-
-            <div onclick="favorite(this)" class="card-selection sax">
-                Saxofone
-                <span class="material-icons">favorite_border</span>
-            </div>
-
-            <div onclick="favorite(this)" class="card-selection violin">
-                Violino
-                <span class="material-icons">favorite_border</span>
-            </div>
-
-            <div onclick="favorite(this)" class="card-selection flute">
-                Flauta
-                <span class="material-icons">favorite_border</span>
-            </div>
-
-            <div onclick="favorite(this)" class="card-selection acoustic-guitar">
-                Violão
-                <span class="material-icons">favorite_border</span>
-            </div>
-
-        </div>
+        <div class="selection-vote" id="selection-instrument"></div>
         <br>
-        <button onclick="set_as_favorite()" class="blue-button">Avançar</button>
+        <button id="btn_sign" onclick="save_data_instrument()" class="blue-button">Avançar</button>
         <br>
-        <img class="load-gif" src="./img/load-gifs/loading.gif">
+        <img id="loadGif" class="load-gif" src="./img/load-gifs/loading.gif">
         <div id="error_msg" class="error-message">
 
         </div>

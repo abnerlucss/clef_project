@@ -11,11 +11,36 @@ function login() {
 
             response.json().then(json => {
 
-                sessionStorage.login_usuario_meuapp = json.user_login;
+                sessionStorage.login_usuario_meuapp = json.login;
+                sessionStorage.id_usuario_meuapp = json.idUsuario;
                 sessionStorage.nome_usuario_meuapp = json.nome;
 
-                // window.location.href = 'tempo-real.html';
-                alert('Funcionei');
+
+                var user_id = sessionStorage.id_usuario_meuapp;
+
+                fetch(`/users/checkInstrument/${user_id}`)
+                    .then(resposta => {
+                        if (resposta.ok) {
+                            resposta.json().then(function (resposta) {
+                                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                                var recoveryData = JSON.parse(JSON.stringify(resposta));
+                                
+                                if (recoveryData[0].fkEstiloFavorito == null) {
+                                    window.location.replace('instrument_select.html');
+                                }
+                                else {
+                                    alert('Tudo certo');
+                                }
+                            });
+                        } else {
+                            console.log(resposta);
+                        }
+                    })
+                    .catch(function (error) {
+                        console.error(`Erro na obtenção dos instrumentos do usuário: ${error.message}`);
+                    });
+
+                // window.location.replace('posts.html');
             });
 
         } else {

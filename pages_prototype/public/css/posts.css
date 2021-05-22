@@ -1,0 +1,18 @@
+.wellcome-posts {
+    margin: auto;
+    width: 80%;
+    height: 60vh;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.wellcome-posts-img{
+    height: 80%;
+    background-image: url(../img/pictures/img7.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

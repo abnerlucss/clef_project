@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu estilo</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="./img/logos/icon-logo-clef.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/musical_genres.css">
+    <script src="./scripts/sign.js"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="navbar">
+            <div class="nav-logo">
+                <a class="link-disable" href="">
+                    <img src="./img/logos/logo-clef.svg" alt="">
+                </a>
+            </div>
+            <div class="navbar-menu hidden">
+                <ul>
+                    <a href="">
+                        <li>Home</li>
+                    </a>
+                    <a href="">
+                        <li>Posts</li>
+                    </a>
+                    <a href="">
+                        <li>Sobre</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="navbar-buttons hidden">
+                <a href="./sign.html">
+                    <button class="blue-button">Cadastrar</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content center">
+        <h2>Escolha seu estilo de música favorito</h2>
+
+        <div class="selection-vote" id="selection-genres">
+            <div onclick="favorite_genre_interface(this)" class="card-selection blues">
+                Blues
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection bossa_nova">
+                Bossa Nova
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection classico">
+                Clássico
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection country">
+                Country
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection eletronica">
+                Eletrônica
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection rock">
+                Rock
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection jazz">
+                Jazz
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection mpb">
+                Mpb
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection pop">
+                Pop
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection samba">
+                Samba
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection pagode">
+                Pagode
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection sertanejo">
+                Sertanejo
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection funk">
+                Funk
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection forro">
+                Forró
+            </div>
+
+            <div onclick="favorite_genre_interface(this)" class="card-selection rap">
+                Rap
+            </div>
+
+        </div>
+        <br>
+        <button id="btn_sign" onclick="finalize_sign()" class="blue-button">Avançar</button>
+        <br>
+        <img id="loadGif" class="load-gif" src="./img/load-gifs/loading.gif">
+        <div id="error_msg" class="error-message">
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>Desenvolvido por <a href="https://github.com/abnerlucss" target="_blank">Abner Lucas</a></p>
+        <img src="img/logos/white-logo-clef.svg" alt="">
+    </div>
+</body>
+
+</html>
+
+<script>
+    var cores = ['#f9ca24','#f0932b','#686de0','##40739e','##fff200','#535c68','#22a6b3','#be2edd','#6ab04c','#eb4d4b','#badc58','#e056fd','#ffbe76','#44bd32','#ffb8b8'];
+
+    for(let card of document.querySelectorAll('.card-selection')){
+        var num_random = parseInt(Math.random() * cores.length);
+        card.style.backgroundColor = cores[num_random];
+    }
+
+
+</script>

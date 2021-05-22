@@ -44,7 +44,8 @@
 
     <div class="main-content">
         <div class="sign-container">
-            <form class="custom-form" id="form_sign" method="post" onsubmit="return sign()">
+            <form class="custom-form" id="form_sign" method="post" action="javascript:void(0)"
+                onsubmit="return save_data_login()">
                 <h2 class="form-title">Criar conta</h2>
 
                 Nome completo
@@ -59,9 +60,7 @@
                 Senha
                 <input type="password" name="senha" class="custom-input">
 
-                <input type="submit" id="btn_sign" value="Cadastrar" class="blue-button">
-
-                <img src="img/load-gifs/loading.gif" id="loadGif" class="load-gif hidden">
+                <input type="submit" id="btn_advance" value="Avançar" class="blue-button">
 
                 <div id="error_msg" class="error-message">
 

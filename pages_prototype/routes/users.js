@@ -36,30 +36,32 @@ router.post('/authenticate', function (req, res, next) {
 	});
 });
 
-/* Escolhendo Instrumento favorito */
-router.post('/set_as_favorite', function (req, res, next) {
+/* Verificar se o usuário já selecionou o instrumento */
+router.get('/checkInstrument/:idUsuario', function (req, res, next) {
+	console.log('Se o usuário possui instrumento favorito');
+	var idUsuario = req.params.idUsuario;
+	let instrucaoSql = `select * from usuario where idUsuario = ${idUsuario}`;
 
-	let query = `SELECT LAST_INSERT_ID();`;
-
-	sequelize.query(query, {
-		model: Usuario
-	}).then(resultado => {
-		res.json(resultado);
-
-	}).catch(erro => {
-		console.error(erro);
-		res.status(500).send(erro.message);
-	});
+	sequelize.query(instrucaoSql, {
+		model: Usuario,
+		mapToModel: true
+	})
+		.then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
 });
+
 
 /* Cadastrar usuário */
 router.post('/sign', function (req, res, next) {
-	console.log('Criando um usuário');
-
 	Usuario.create({
 		nome: req.body.nome,
 		login: req.body.user_login,
-		senha: req.body.senha
+		senha: req.body.senha,
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
 		res.send(resultado);
@@ -71,7 +73,7 @@ router.post('/sign', function (req, res, next) {
 
 
 /* Verificação de usuário */
-router.get('/sessao/:login', function (req, res, next) {
+router.get('/session/:login', function (req, res, next) {
 	let login = req.params.login;
 	console.log(`Verificando se o usuário ${login} tem sessão`);
 
@@ -95,7 +97,7 @@ router.get('/sessao/:login', function (req, res, next) {
 
 
 /* Logoff de usuário */
-router.get('/sair/:login', function (req, res, next) {
+router.get('/exit/:login', function (req, res, next) {
 	let login = req.params.login;
 	console.log(`Finalizando a sessão do usuário ${login}`);
 	let nova_sessoes = []
@@ -119,6 +121,28 @@ router.get('/', function (req, res, next) {
 	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
+	});
+});
+
+// Definir instrumento favorito do usuário
+router.post("/saveInstrument/:idUsuario/:instrumentoUsuario", (req, res, next) => {
+	let idUsuario = req.params.idUsuario;
+	let instrumento = req.params.instrumentoUsuario;
+
+	let sqlInstruction;
+
+	sqlInstruction = `update usuario set fkInstrumentoFavorito = ${instrumento} where idUsuario = ${idUsuario};`;
+
+	sequelize.query(sqlInstruction).then(resultado => {
+		res.send(resultado);
+		console.log(`\n\nRegistro inserido com sucesso!\nO comando executado foi como abaixo:\n`);
+		console.log(sqlInstruction);
+		console.log(`\nFim do comando SQL executado.`);
+		response.status(200).send("Dado inserido com sucesso.");
+	}).catch(erro => {
+		res.send(resultado);
+		console.error(erro);
+		response.status(500).send(erro.message);
 	});
 });
 

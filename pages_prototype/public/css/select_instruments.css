@@ -1,0 +1,30 @@
+.selection-vote {
+    background-color: var(--grey);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 5%;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card-selection {
+    margin: 5px;
+    height: 50vh;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+    background-color: var(--black);
+    transition: 0.15s;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-selection:hover {
+    cursor: pointer;
+    transform: translate(-2px, -12px);
+}
