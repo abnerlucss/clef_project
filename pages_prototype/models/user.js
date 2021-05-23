@@ -18,6 +18,11 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
+		email: {
+			field: 'email',
+			type: DataTypes.STRING,
+			allowNull: false
+		},
 		login: {
 			field: 'login',
 			type: DataTypes.STRING,
@@ -30,12 +35,12 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		fkInstrumentoFavorito: {
 			field: 'fkInstrumentoFavorito',
-			type: DataTypes.STRING,
+			type: DataTypes.INTEGER,
 			allowNull: true
 		},
 		fkEstiloFavorito: {
 			field: 'fkEstiloFavorito',
-			type: DataTypes.STRING,
+			type: DataTypes.INTEGER,
 			allowNull: true
 		}
 	}, 

@@ -7,7 +7,9 @@
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
-    border-radius: 20px 20px 0px 0px;
+    /* border-radius: 20px 20px 0px 0px; */
+    margin-bottom: 50px;
+    /* color: var(--primary-color); */
 }
 
 .wellcome-posts-img{
@@ -15,4 +17,22 @@
     background-image: url(../img/pictures/img7.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.main-content{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.ranking-card{
+    width: 100%;
+    height: 30vh;
+    border-radius: 5px;
+    border: 0.3px solid rgb(218, 218, 218);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 20px;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+
 }

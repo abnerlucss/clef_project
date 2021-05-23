@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body onload="loadStyles()">
 
     <div class="header">
         <div class="navbar">
@@ -58,61 +58,9 @@
                 Bossa Nova
             </div>
 
-            <div onclick="favorite_genre_interface(this)" class="card-selection classico">
-                Clássico
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection country">
-                Country
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection eletronica">
-                Eletrônica
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection rock">
-                Rock
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection jazz">
-                Jazz
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection mpb">
-                Mpb
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection pop">
-                Pop
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection samba">
-                Samba
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection pagode">
-                Pagode
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection sertanejo">
-                Sertanejo
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection funk">
-                Funk
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection forro">
-                Forró
-            </div>
-
-            <div onclick="favorite_genre_interface(this)" class="card-selection rap">
-                Rap
-            </div>
-
         </div>
         <br>
-        <button id="btn_sign" onclick="finalize_sign()" class="blue-button">Avançar</button>
+        <button id="btn_sign" onclick="save_data_style()" class="blue-button">Avançar</button>
         <br>
         <img id="loadGif" class="load-gif" src="./img/load-gifs/loading.gif">
         <div id="error_msg" class="error-message">
@@ -128,14 +76,3 @@
 </body>
 
 </html>
-
-<script>
-    var cores = ['#f9ca24','#f0932b','#686de0','##40739e','##fff200','#535c68','#22a6b3','#be2edd','#6ab04c','#eb4d4b','#badc58','#e056fd','#ffbe76','#44bd32','#ffb8b8'];
-
-    for(let card of document.querySelectorAll('.card-selection')){
-        var num_random = parseInt(Math.random() * cores.length);
-        card.style.backgroundColor = cores[num_random];
-    }
-
-
-</script>

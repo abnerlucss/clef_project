@@ -7,10 +7,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usuariosRouter = require('./routes/users');
-var instrumentosRouter = require('./routes/instruments')
+var instrumentosRouter = require('./routes/instruments');
+var estilosRouter = require('./routes/musicStyles');
 var app = express();
 
-app.use(logger('dev')); 
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -19,5 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usuariosRouter);
 app.use('/instruments', instrumentosRouter);
+app.use('/musicStyles', estilosRouter);
 
 module.exports = app;

@@ -55,11 +55,31 @@ router.get('/checkInstrument/:idUsuario', function (req, res, next) {
 		});
 });
 
+/* Verificar se o usuário já selecionou o estilo*/
+router.get('/checkStyle/:idUsuario', function (req, res, next) {
+	console.log('Verificando se o usuário possui estilo favorito');
+
+	var idUsuario = req.params.idUsuario;
+	let instrucaoSql = `select * from usuario where idUsuario = ${idUsuario}`;
+
+	sequelize.query(instrucaoSql, {
+		model: Usuario,
+		mapToModel: true
+	})
+		.then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+});
 
 /* Cadastrar usuário */
 router.post('/sign', function (req, res, next) {
 	Usuario.create({
 		nome: req.body.nome,
+		email: req.body.email,
 		login: req.body.user_login,
 		senha: req.body.senha,
 	}).then(resultado => {
@@ -140,9 +160,30 @@ router.post("/saveInstrument/:idUsuario/:instrumentoUsuario", (req, res, next) =
 		console.log(`\nFim do comando SQL executado.`);
 		response.status(200).send("Dado inserido com sucesso.");
 	}).catch(erro => {
+		// res.send(resultado);
+		// console.error(erro);
+		// response.status(500).send(erro.message);
+	});
+});
+
+// Definir instrumento estilo do usuário
+router.post("/saveStyle/:idUsuario/:estiloUsuario", (req, res, next) => {
+	let idUsuario = req.params.idUsuario;
+	let estilo = req.params.estiloUsuario;
+
+	let sqlInstruction;
+
+	sqlInstruction = `update usuario set fkEstiloFavorito = ${estilo} where idUsuario = ${idUsuario};`;
+
+	sequelize.query(sqlInstruction).then(resultado => {
 		res.send(resultado);
-		console.error(erro);
-		response.status(500).send(erro.message);
+		console.log(`\n\nRegistro inserido com sucesso!\nO comando executado foi como abaixo:\n`);
+		console.log(sqlInstruction);
+		console.log(`\nFim do comando SQL executado.`);
+		res.status(200).send("Dado inserido com sucesso.");
+
+	}).catch(erro => {
+		// console.error(erro);
 	});
 });
 

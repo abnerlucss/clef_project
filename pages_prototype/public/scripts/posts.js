@@ -1,5 +1,6 @@
-var username = sessionStorage.getItem('nome_usuario_meuapp');
-var user_login = sessionStorage.getItem('login_usuario_meuapp');
+var username = sessionStorage.nome_usuario_meuapp;
+var user_login = sessionStorage.login_usuario_meuapp;
+
 document.getElementById('span_username').innerHTML = username;
 
 
@@ -13,6 +14,8 @@ function check_authenticate() {
     } else {
         document.getElementById('span_username').innerHTML = username;
         validate_session();
+
+        // CARREGAR OS POSTS
     }
 
 }

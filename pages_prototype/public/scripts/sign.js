@@ -20,6 +20,53 @@ function loadInstruments() {
         });
 }
 
+function loadStyles() {
+    fetch("/musicStyles")
+        .then(resposta => {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    generateStyleLayout(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção das publicações: ${error.message}`);
+        });
+}
+
+function generateStyleLayout(musicStyles) {
+    var selection_style = document.getElementById("selection-genres");
+    selection_style.innerHTML = "";
+
+    for (let i = 0; i < musicStyles.length; i++) {
+        var style = musicStyles[i];
+
+        var card_style = document.createElement("div");
+
+        card_style.className = `card-selection ${style.idEstilo}`;
+        card_style.innerHTML = `${style.nomeEstilo}`;
+        selection_style.appendChild(card_style);
+    }
+
+    var cards = selection_style.children;
+    for (let item of cards) {
+        item.addEventListener('click', () => {
+            favorite_style_interface(item);
+        });
+    }
+
+    var cores = ['#f9ca24', '#f0932b', '#686de0', '##40739e', '##fff200', '#535c68', '#22a6b3', '#be2edd', '#6ab04c', '#eb4d4b', '#badc58', '#e056fd', '#ffbe76', '#44bd32', '#ffb8b8'];
+
+    for (let card of document.querySelectorAll('.card-selection')) {
+        var num_random = parseInt(Math.random() * cores.length);
+        card.style.backgroundColor = cores[num_random];
+    }
+}
+
 function generateInstrumentLayout(instruments) {
     var selection_instrument = document.getElementById("selection-instrument");
     selection_instrument.innerHTML = "";
@@ -70,7 +117,7 @@ function favorite_instrument_interface(context) {
     return instrumento = context.className.split(' ')[1];
 }
 
-function favorite_genre_interface(context) {
+function favorite_style_interface(context) {
     //Antes de tudo: pego o elemento pai do contexto e todas as tags span do elemento pai
     let parent = context.parentNode;
     //Pegando os elementos filhos
@@ -110,28 +157,18 @@ function save_data_instrument() {
     }
 }
 
-function finalize_sign() {
+function save_data_style() {
     if (estilo == null) {
         alert('Por favor selecione um estilo');
     }
     else {
-        dataUser = sessionStorage.getItem('data_user');
-        dataUser = JSON.parse(dataUser);
-
-        dataUser.estilo_favorito = estilo;
-
-        let signData = new URLSearchParams(dataUser);
-        fetch("/users/sign", {
+        fetch(`/users/saveStyle/${sessionStorage.id_usuario_meuapp}/${estilo}`, {
             method: "POST",
-            body: signData
         }).then(function (response) {
 
             if (response.ok) {
-                console.log(response);
-                window.location.replace('login.html');
-
+                window.location.replace('posts.html');
             } else {
-
                 console.log('Erro de cadastro!');
                 response.text().then(function (error_desc) {
                     error_msg.innerHTML = error_desc;
@@ -167,22 +204,7 @@ function save_data_login() {
 
     return false;
 
-    // var formData = {};
-
-    // form.forEach((value, attribute) => {
-    //     formData[attribute] = value;
-    // });
-
-    // formData = JSON.stringify(formData);
-
-    // sessionStorage.setItem('data_user', formData);
-
-    // // Replace impede que o usuário volte para a página anterior
-    // 
 }
-
-
-
 
 // LOADS 
 function active_load() {
