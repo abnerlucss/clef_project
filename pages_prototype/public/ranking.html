@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mergulhe na Harmonia</title>
+    <title>Rankings</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" href="./img/logos/icon-logo-clef.svg" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/posts.css">
+    <link rel="stylesheet" href="css/ranking.css">
 
 </head>
 
-<body onload="check_authenticate('loadPosts')">
+<body onload="check_authenticate('loadRanking')">
     <div class="header">
         <div class="navbar">
             <div class="nav-logo">
@@ -24,10 +26,10 @@
             </div>
             <div class="navbar-menu">
                 <ul>
-                    <a href="" class="nav-selected">
+                    <a href="posts.html">
                         <li>Postagens</li>
                     </a>
-                    <a href="ranking.html">
+                    <a href="" class="nav-selected">
                         <li>Rankings</li>
                     </a>
                 </ul>
@@ -36,36 +38,31 @@
                 <button onclick="log_out()" class="blue-button">
                     <span class="material-icons">
                         logout
-                    </span> 
+                    </span>
                 </button>
-            </a>
+                </a>
             </div>
         </div>
     </div>
 
-    <div class="wellcome-posts">
-        <div class="wellcome-posts-img"></div>
-        <h2>Bem vindo <span id="span_username"></span></h2>
-        <h4>Preparamos os melhores conteúdos para você!</h4>
-    </div>
-
     <div class="main-content">
+        <div class="ranking-card">
+            <div class="chart">
+                <canvas id="instrumentChart"></canvas>
+            </div>
+        </div>
 
         <div class="ranking-card">
-            <h3>Os instrumentos favoritos dos usuários:</h3>
-        </div>
-        <div class="ranking-card">
-            <h3>Os estilos favoritos dos usuários:</h3>
+            <div class="chart">
+                <canvas id="styleChart"></canvas>
+            </div>
         </div>
     </div>
-
     <div class="footer">
         <p>Desenvolvido por <a href="https://github.com/abnerlucss" target="_blank">Abner Lucas</a></p>
         <img src="img/logos/white-logo-clef.svg" alt="">
     </div>
-
 </body>
 
 </html>
-
 <script src="scripts/logged_content.js"></script>

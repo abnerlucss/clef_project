@@ -108,11 +108,14 @@ body {
 }
 
 /*MENU DO NAVBAR */
-
+.nav-selected{
+    border-bottom: solid 3px var(--primary-color);
+}
 .navbar-menu ul a {
+    margin: 0 5px;
     text-decoration: none;
     color: var(--black);
-    padding: 5vh 2vw;
+    padding: 2vw 2vw;
     transition: 0.2s;
 }
 
@@ -125,7 +128,6 @@ body {
 }
 
 .navbar-buttons {
-    width: 12vw;
     height: 40px;
     display: flex;
     justify-content: space-between;
@@ -134,6 +136,7 @@ body {
 /* Botão azul */
 
 .blue-button {
+    margin: 0 5px;
     font-size: inherit;
     height: 30px;
     width: 100px;

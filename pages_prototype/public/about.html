@@ -5,68 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar</title>
+    <title>Sobre o projeto</title>
 
     <link rel="shortcut icon" href="./img/logos/icon-logo-clef.svg" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/login_sign.css">
-
-    <script src="./scripts/login.js"></script>
 </head>
 
 <body>
-
     <div class="header">
         <div class="navbar">
             <div class="nav-logo">
-                <a href="./index.html">
+                <a href="">
                     <img src="./img/logos/logo-clef.svg" alt="">
                 </a>
             </div>
             <div class="navbar-menu">
                 <ul>
-                    <a href="./index.html">
+                    <a href="index.html">
                         <li>Home</li>
                     </a>
-                    <a href="">
+                    <a href="" class="nav-selected">
                         <li>Sobre</li>
                     </a>
                 </ul>
             </div>
             <div class="navbar-buttons">
+                <a href="./login.html">
+                    <button class="blue-button">Entrar</button>
+                </a>
                 <a href="./sign.html">
                     <button class="blue-button">Cadastrar</button>
                 </a>
             </div>
         </div>
     </div>
-
-    <div class="main-content">
-        <div class="form-container">
-            <form class="custom-form" id="form_login" method="post" onsubmit="return login()">
-                <h2 class="form-title">Faça login</h2>
-
-                Usuário
-                <input class="custom-input" type="text" name="user_login">
-
-                Senha
-                <input class="custom-input" type="password" name="senha">
-
-                <input type="submit" id="btn_login" value="Entrar" class="blue-button">
-
-                <img src="img/load-gifs/loading.gif" id="loadGif" class="load-gif">
-
-                <div id="error_msg" class="error-message">
-
-                </div>
-
-
-            </form>
-
-
-        </div>
-    </div>
-
+    
     <div class="footer">
         <p>Desenvolvido por <a href="https://github.com/abnerlucss" target="_blank">Abner Lucas</a></p>
         <img src="img/logos/white-logo-clef.svg" alt="">

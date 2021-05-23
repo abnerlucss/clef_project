@@ -2,6 +2,7 @@
 var instrumento;
 var estilo;
 
+// FUNÇÃO QUE FAZ A REQUISIÇÃO DE TODOS OS INSTRUMENTOS CADASTRADOS NO BANCO 
 function loadInstruments() {
     fetch("/instruments")
         .then(resposta => {
@@ -20,6 +21,7 @@ function loadInstruments() {
         });
 }
 
+// FUNÇÃO QUE FAZ A REQUISIÇÃO DE TODOS OS ESTILOS CADASTRADOS NO BANCO 
 function loadStyles() {
     fetch("/musicStyles")
         .then(resposta => {
@@ -38,6 +40,7 @@ function loadStyles() {
         });
 }
 
+// FUNÇÃO QUE CRIA O LAYOUT DINÂMICO AO RECEBER OS PARÂMETROS(ESTILOS)
 function generateStyleLayout(musicStyles) {
     var selection_style = document.getElementById("selection-genres");
     selection_style.innerHTML = "";
@@ -67,6 +70,7 @@ function generateStyleLayout(musicStyles) {
     }
 }
 
+// FUNÇÃO QUE CRIA O LAYOUT DINÂMICO AO RECEBER OS PARÂMETROS(INSTRUMENTOS)
 function generateInstrumentLayout(instruments) {
     var selection_instrument = document.getElementById("selection-instrument");
     selection_instrument.innerHTML = "";
@@ -104,7 +108,7 @@ function favorite_instrument_interface(context) {
     let cards = parent.children;
 
     // Isso gera uma lista de elementos html
-    // Portanto eu pego cada elemento da lista e configuro o texto para 'favorite_border'
+    // Portanto eu seleciono cada elemento da lista e configuro o texto para 'favorite_border'
     // Desse modo, reseto o ícone para o coração sem preenchimento, tal como a borda
     for (let elem of cards) {
         elem.style.border = 'none';
@@ -118,7 +122,7 @@ function favorite_instrument_interface(context) {
 }
 
 function favorite_style_interface(context) {
-    //Antes de tudo: pego o elemento pai do contexto e todas as tags span do elemento pai
+    //Antes de tudo: seleciono o elemento pai do contexto e todas as tags span do elemento pai
     let parent = context.parentNode;
     //Pegando os elementos filhos
     let cards = parent.children;
@@ -132,6 +136,7 @@ function favorite_style_interface(context) {
     return estilo = context.className.split(' ')[1];
 }
 
+// FAZ A REQUISIÇÃO PARA ARMAZENAR NO BANCO O INSTRUMENTO ESCOLHIDO
 function save_data_instrument() {
     if (instrumento == undefined) {
         alert('Selecione um instrumento');
@@ -157,6 +162,7 @@ function save_data_instrument() {
     }
 }
 
+// FAZ A REQUISIÇÃO PARA ARMAZENAR NO BANCO O ESTILO ESCOLHIDO
 function save_data_style() {
     if (estilo == null) {
         alert('Por favor selecione um estilo');
@@ -181,6 +187,7 @@ function save_data_style() {
     }
 }
 
+// FAZ A REQUISIÇÃO PARA ARMAZENAR NO BANCO OS DADOS DE LOGIN
 function save_data_login() {
     let signData = new URLSearchParams(new FormData(form_sign));
     fetch("/users/sign", {
