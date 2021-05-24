@@ -17,16 +17,27 @@ function validateLogin() {
 
     if (login.value == '') {
         login.classList.toggle('wrong-input');
-
+        login.placeholder = 'Digite o login';
         setTimeout(() => {
+            login.placeholder = '';
+            login.classList.remove('wrong-input');
+        }, 1500);
+        return false;
+    } else if (login.value == undefined) {
+        login.classList.toggle('wrong-input');
+        login.placeholder = 'Login inválido';
+        setTimeout(() => {
+            login.placeholder = '';
             login.classList.remove('wrong-input');
         }, 1500);
         return false;
     }
     else if (password.value == '') {
         password.classList.toggle('wrong-input');
+        password.placeholder = 'Digite a senha';
 
         setTimeout(() => {
+            password.placeholder = '';
             password.classList.remove('wrong-input');
         }, 1500);
         return false;
@@ -78,4 +89,13 @@ function validateSign() {
     else {
         return true;
     }
+}
+
+function showAlertMsg(message) {
+    error_msg.style.display = 'flex';
+    error_msg.innerHTML = message;
+
+    setTimeout(() => {
+        error_msg.style.display = 'none';;
+    }, 1500);
 }

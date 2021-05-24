@@ -24,7 +24,7 @@ body {
     --light-grey: #e5e5e5;
     --grey: #6e6e6e;
     --confirm-color: #51bb4f;
-    --cancel-color: #d63031;
+    --cancel-color: #c54444;
     --black: rgba(43, 43, 43);
     --image-darken: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5));
     --blue-gradient: linear-gradient(253.41deg, #418DFF 24%, rgba(255, 255, 255, 0) 101.73%), #385684;
@@ -43,8 +43,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 1vh;
     background: var(--black);
 }
 
@@ -71,14 +70,18 @@ body {
 }
 
 /* DESABILITAR LINKS */
-.link-disable{
+
+.link-disable {
     pointer-events: none;
     color: inherit;
 }
+
 /* Centralizar texto */
-.center{
+
+.center {
     text-align: center;
 }
+
 /* HEADER */
 
 .header {
@@ -109,9 +112,11 @@ body {
 }
 
 /*MENU DO NAVBAR */
-.nav-selected{
-    border-bottom: solid 3px var(--primary-color);
+
+.nav-selected {
+    border-bottom: solid 0.5vh var(--primary-color);
 }
+
 .navbar-menu ul a {
     margin: 0 5px;
     text-decoration: none;
@@ -128,24 +133,31 @@ body {
     display: inline;
 }
 
-.navbar-buttons {
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
+.navbar .navbar-buttons a{
+    height: 6vh;
+    text-decoration: none;
 }
 
+.navbar-buttons {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+#exit_icon{
+    font-size: 3vh;
+}
 /* Botão azul */
 
 .blue-button {
-    text-align: center;
     margin: 0 5px;
-    font-size: inherit;
-    height: 30px;
-    width: 100px;
-    margin: 5px;
-    padding: 0 15px;
+    font-size: 2.5vh;
+    height: 4.5vh;
+    margin: .2vw;
+    padding: 0 1vw;
     border: none;
-    border-radius: 2px;
+    border-radius: 0.3vh;
     color: var(--white);
     background: var(--blue-gradient);
     transition: 0.2s;
@@ -158,7 +170,9 @@ body {
 
 /* MENSAGENS DE ERRO DO FORM*/
 
-.error-message{
+.error-message {
+    align-items: center;
+    justify-content: center;
     height: 8vh;
     width: 100%;
     margin: 10px 0;
@@ -220,4 +234,10 @@ section {
 
 .footer p a {
     color: inherit;
+}
+
+@media(max-width: 500px) {
+    .navbar{
+        display: none;
+    }
 }
