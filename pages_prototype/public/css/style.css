@@ -24,7 +24,7 @@ body {
     --light-grey: #e5e5e5;
     --grey: #6e6e6e;
     --confirm-color: #51bb4f;
-    --cancel-color: #e5383b;
+    --cancel-color: #d63031;
     --black: rgba(43, 43, 43);
     --image-darken: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5));
     --blue-gradient: linear-gradient(253.41deg, #418DFF 24%, rgba(255, 255, 255, 0) 101.73%), #385684;

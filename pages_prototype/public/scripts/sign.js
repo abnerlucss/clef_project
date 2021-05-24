@@ -192,28 +192,31 @@ function save_data_style() {
 
 // FAZ A REQUISIÇÃO PARA ARMAZENAR NO BANCO OS DADOS DE LOGIN
 function save_data_login() {
-    active_load_gif();
-    disableButton(document.getElementById('btn_sign'));
-    let signData = new URLSearchParams(new FormData(form_sign));
-    fetch("/users/sign", {
-        method: "POST",
-        body: signData
-    }).then(function (response) {
+    var validation = validateSign();
+    if (validation == true) {
+        active_load_gif();
+        disableButton(document.getElementById('btn_sign'));
+        let signData = new URLSearchParams(new FormData(form_sign));
+        fetch("/users/sign", {
+            method: "POST",
+            body: signData
+        }).then(function (response) {
 
-        if (response.ok) {
-            console.log(response);
-            window.location.replace('login.html');
+            if (response.ok) {
+                console.log(response);
+                window.location.replace('login.html');
 
-        } else {
+            } else {
 
-            console.log('Erro de cadastro!');
-            response.text().then(function (error_desc) {
-                error_msg.innerHTML = error_desc;
-            });
+                console.log('Erro de cadastro!');
+                response.text().then(function (error_desc) {
+                    error_msg.innerHTML = error_desc;
+                });
 
-        }
-    });
+            }
+        });
 
-    return false;
+        return false;
+    }
 
 }

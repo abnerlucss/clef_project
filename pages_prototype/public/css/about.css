@@ -1,0 +1,19 @@
+.main-content{
+    display: flex;
+    flex-direction: column;
+    margin: 10vh 0;
+    align-items: center;
+}
+.content{
+    width: 80%;
+    text-align: justify;
+}
+.myphoto{
+    width: 30vw;
+    height: 30vw;
+    background-color: var(--black);
+    border-radius: 50%;
+    border: 0.8vh solid var(--secondary-color);
+    background: url(../img/pictures/myPhoto.jpg);
+    background-size: contain;
+}
