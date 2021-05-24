@@ -93,6 +93,7 @@ body {
 .navbar {
     height: 15vh;
     width: 100%;
+    background-color: var(--white);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -136,6 +137,7 @@ body {
 /* Botão azul */
 
 .blue-button {
+    text-align: center;
     margin: 0 5px;
     font-size: inherit;
     height: 30px;

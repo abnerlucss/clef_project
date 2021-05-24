@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mergulhe na Harmonia</title>
+    <title>Postagens</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" href="./img/logos/icon-logo-clef.svg" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/posts.css">
-
+    <link rel="stylesheet" href="css/login_sign.css">
 </head>
 
-<body onload="check_authenticate('loadPosts')">
+<body onload="loadPosts()">
+
     <div class="header">
         <div class="navbar">
             <div class="nav-logo">
@@ -36,36 +37,48 @@
                 <button onclick="log_out()" class="blue-button">
                     <span class="material-icons">
                         logout
-                    </span> 
+                    </span>
                 </button>
-            </a>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="wellcome-posts">
         <div class="wellcome-posts-img"></div>
-        <h2>Bem vindo <span id="span_username"></span></h2>
+        <h2>Bem vindo(a) <span id="span_username"></span></h2>
         <h4>Preparamos os melhores conteúdos para você!</h4>
     </div>
+    <button onclick="addPost()" class="add-btn">
+        <span class="material-icons">
+            add
+        </span>
+    </button>
 
-    <div class="main-content">
+    <div id="main_content" class="main-content">
 
-        <div class="ranking-card">
-            <h3>Os instrumentos favoritos dos usuários:</h3>
-        </div>
-        <div class="ranking-card">
-            <h3>Os estilos favoritos dos usuários:</h3>
-        </div>
     </div>
 
+    <div id="modal_bg" class="modal-bg">
+        <form action="javascript:void(0)" method="POST" onsubmit="upload()" id="post_form" class="post-form">
+            <span onclick="closeAddPost()" id="close-add" class="material-icons">
+                close
+            </span>
+            <h2>Criar um post</h2>
+            Título <br>
+            <input id="title_input" required class="custom-input" type="text" name="title"> <br>
+            Texto <br>
+            <textarea required class="custom-textarea" name="text" id="text_input" cols="30" rows="10"></textarea> <br>
+            <input type="submit" class="blue-button" value="Enviar">
+        </form>
+    </div>
     <div class="footer">
         <p>Desenvolvido por <a href="https://github.com/abnerlucss" target="_blank">Abner Lucas</a></p>
         <img src="img/logos/white-logo-clef.svg" alt="">
     </div>
-
 </body>
 
 </html>
 
 <script src="scripts/logged_content.js"></script>
+<script src="scripts/publications.js"></script>

@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usuariosRouter = require('./routes/users');
 var instrumentosRouter = require('./routes/instruments');
 var estilosRouter = require('./routes/musicStyles');
+var postagensRouter = require('./routes/posts');
 var app = express();
 
 app.use(logger('dev'));
@@ -21,5 +22,6 @@ app.use('/', indexRouter);
 app.use('/users', usuariosRouter);
 app.use('/instruments', instrumentosRouter);
 app.use('/musicStyles', estilosRouter);
+app.use('/posts', postagensRouter);
 
 module.exports = app;
