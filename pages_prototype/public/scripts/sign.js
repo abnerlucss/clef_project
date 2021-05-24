@@ -1,4 +1,3 @@
-// Variáveis globais
 var instrumento;
 var estilo;
 
@@ -141,6 +140,8 @@ function save_data_instrument() {
     if (instrumento == undefined) {
         alert('Selecione um instrumento');
     } else {
+        active_load_gif();
+        disableButton(document.getElementById('btn_save_instrument'));
         fetch(`/users/saveInstrument/${sessionStorage.id_usuario_meuapp}/${instrumento}`, {
             method: "POST",
         }).then(function (response) {
@@ -168,6 +169,8 @@ function save_data_style() {
         alert('Por favor selecione um estilo');
     }
     else {
+        active_load_gif();
+        disableButton(document.getElementById('btn_save_style'));
         fetch(`/users/saveStyle/${sessionStorage.id_usuario_meuapp}/${estilo}`, {
             method: "POST",
         }).then(function (response) {
@@ -189,6 +192,8 @@ function save_data_style() {
 
 // FAZ A REQUISIÇÃO PARA ARMAZENAR NO BANCO OS DADOS DE LOGIN
 function save_data_login() {
+    active_load_gif();
+    disableButton(document.getElementById('btn_sign'));
     let signData = new URLSearchParams(new FormData(form_sign));
     fetch("/users/sign", {
         method: "POST",
@@ -210,19 +215,5 @@ function save_data_login() {
     });
 
     return false;
-
-}
-
-// LOADS 
-function active_load() {
-    btn_sign.disabled = true;
-    loadGif.style.visibility = 'visible';
-
-}
-
-function finalize_load() {
-    btn_sign.disabled = false;
-    loadGif.style.visibility = 'hidden';
-    error_msg.style.display = 'block';
 
 }

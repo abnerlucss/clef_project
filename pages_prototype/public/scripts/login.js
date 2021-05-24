@@ -1,6 +1,6 @@
 function login() {
-    active_load();
-
+    active_load_gif();
+    disableButton(document.getElementById('btn_login'));
     let form = new URLSearchParams(new FormData(form_login));
     fetch("/users/authenticate", {
         method: "POST",
@@ -34,7 +34,6 @@ return false;
 
 // Função que quando chamada faz a requisição para saber se o usuário já selecionou o instrumento
 function checkInstrumento(userId) {
-
     fetch(`/users/checkInstrument/${userId}`)
         .then(resposta => {
             if (resposta.ok) {
@@ -56,13 +55,10 @@ function checkInstrumento(userId) {
         .catch(function (error) {
             console.error(`Erro na obtenção dos instrumentos do usuário: ${error.message}`);
         });
-
-    // window.location.replace('posts.html');
 }
 
 // Função que quando chamada faz a requisição para saber se o usuário já selecionou o estilo
 function checkStyle(userId) {
-
     fetch(`/users/checkStyle/${userId}`)
         .then(resposta => {
             if (resposta.ok) {
@@ -84,21 +80,4 @@ function checkStyle(userId) {
         .catch(function (error) {
             console.error(`Erro na obtenção dos instrumentos do usuário: ${error.message}`);
         });
-
-}
-
-
-
-// LOADS 
-function active_load() {
-    btn_login.disabled = true;
-    loadGif.style.visibility = 'visible';
-
-}
-
-function finalize_load(response) {
-    btn_login.disabled = false;
-    loadGif.style.visibility = 'hidden';
-    error_msg.style.display = 'block';
-    error_msg.innerHTML = response;
 }
