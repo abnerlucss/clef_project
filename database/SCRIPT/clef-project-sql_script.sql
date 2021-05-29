@@ -60,13 +60,14 @@ CREATE TABLE usuario (
     foreign key(fkEstiloFavorito) references estilo(idEstilo)
 );
 
-create table favoritarInstrumento(
+create table instrumentoUsuario(
 	fkUsuario int,
     foreign key(fkUsuario) references usuario(idUsuario),
     fkInstrumento int,
     foreign key(fkInstrumento) references instrumento(idInstrumento),
     dataFavoritado datetime default current_timestamp
 );
+
 
 create table post(
 	idPost int primary key auto_increment,
@@ -85,24 +86,14 @@ select * from usuario;
 select * from instrumento;
 select * from estilo;
 select * from post;
+
+
 select post.*, usuario.nome from post join usuario on fkUsuario = idUsuario;
-
-
-    
-update usuario set fkInstrumentoFavorito = 2 where idUsuario = 1;
-
-
-select idInstrumento, nomeInstrumento from instrumento join usuario on idInstrumento = fkInstrumentoFavorito;
-
-
-select count(instrumento.idInstrumento) as 'escolha', nomeInstrumento from instrumento inner join usuario on instrumento.idInstrumento = usuario.fkInstrumentoFavorito
-	group by nomeInstrumento;
-
     
 select count(idEstilo) as 'escolhas', nomeEstilo from estilo join usuario on idEstilo = fkestiloFavorito
 	group by nomeEstilo;
     
-select count(fkInstrumento) as 'escolhas', nomeInstrumento from favoritarInstrumento join instrumento on fkInstrumento = idInstrumento group by nomeInstrumento;
+select count(fkInstrumento) as 'escolhas', nomeInstrumento from instrumentoUsuario join instrumento on fkInstrumento = idInstrumento group by nomeInstrumento;
 
 select * from usuario;
 
@@ -118,15 +109,15 @@ desc favoritarInstrumento;
 insert into usuario values 
 	(null,'Abner Lucas','abnerlusantos@gmail.com','abner','urubu100',null);
     
-insert ignore into favoritarInstrumento values
+insert into instrumentoUsuario values
 	(1,4,default);
     
-select * from favoritarInstrumento;
+select * from instrumentoUsuario;
 select * from instrumento;
 
-select u.nome, i.nomeInstrumento from usuario as u join favoritarInstrumento as fav on u.idUsuario = fav.fkUsuario
-	join instrumento as i on fav.fkInstrumento = i.idInstrumento;
+select u.nome, i.nomeInstrumento from usuario as u join instrumentoUsuario as iu on u.idUsuario = iu.fkUsuario
+	join instrumento as i on iu.fkInstrumento = i.idInstrumento;
     
     
-select fkInstrumento from usuario join favoritarInstrumento on fkUsuario = idUsuario where idUsuario = 3;
+select fkInstrumento from usuario join instrumentoUsuario on fkUsuario = idUsuario where idUsuario = 3;
 
