@@ -40,7 +40,7 @@ router.post('/authenticate', function (req, res, next) {
 router.get('/checkInstrument/:idUsuario', function (req, res, next) {
 	console.log('Se o usuário possui instrumento favorito');
 	var idUsuario = req.params.idUsuario;
-	let instrucaoSql = `select fkInstrumento from usuario join favoritarInstrumento on fkUsuario = idUsuario where idUsuario = ${idUsuario};`;
+	let instrucaoSql = `select fkInstrumento from usuario join instrumentoUsuario on fkUsuario = idUsuario where idUsuario = ${idUsuario};`;
 
 	sequelize.query(instrucaoSql, {
 		model: Usuario,
@@ -153,7 +153,7 @@ router.post("/saveInstrument/:idUsuario/:instrumentosUsuario", (req, res, next) 
 	let sqlInstruction;
 
 	for (let i = 0; i < instrumentos.length; i++) {
-		sqlInstruction = `insert into favoritarInstrumento values (${idUsuario},${instrumentos[i]},default);`;
+		sqlInstruction = `insert into instrumentoUsuario values (${idUsuario},${instrumentos[i]},default);`;
 
 		sequelize.query(sqlInstruction).then(resultado => {
 			res.send(resultado);

@@ -26,7 +26,7 @@ router.get('/', function (req, res, next) {
 router.get('/rankingInstruments', function (req, res, next) {
     console.log('Recuperando todos as escolhas dos usuários para cada instrumento');
 
-    let instrucaoSql = `select count(fkInstrumento) as 'escolhas', nomeInstrumento from favoritarInstrumento join instrumento on fkInstrumento = idInstrumento group by nomeInstrumento;`;
+    let instrucaoSql = `select count(fkInstrumento) as 'escolhas', nomeInstrumento from instrumentoUsuario join instrumento on fkInstrumento = idInstrumento group by nomeInstrumento;`;
 
     sequelize.query(instrucaoSql, {
         model: Instrumento,
