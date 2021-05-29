@@ -3,7 +3,7 @@ var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Instrumento = require('../models').Instrumento;
 
-/* ROTA QUE RECUPERA TODAS OS INSTRUMENTOS CADASTRADOS */
+/* ROTA QUE RECUPERA TODOS OS INSTRUMENTOS CADASTRADOS */
 router.get('/', function (req, res, next) {
     console.log('Recuperando todos os instrumentos');
 
@@ -26,12 +26,11 @@ router.get('/', function (req, res, next) {
 router.get('/rankingInstruments', function (req, res, next) {
     console.log('Recuperando todos as escolhas dos usuários para cada instrumento');
 
-    let instrucaoSql = `select count(instrumento.idInstrumento) as 'escolhas', nomeInstrumento from instrumento inner join usuario on instrumento.idInstrumento = usuario.fkInstrumentoFavorito
-	group by nomeInstrumento;`;
+    let instrucaoSql = `select count(fkInstrumento) as 'escolhas', nomeInstrumento from favoritarInstrumento join instrumento on fkInstrumento = idInstrumento group by nomeInstrumento;`;
 
     sequelize.query(instrucaoSql, {
         model: Instrumento,
-        mapToModel: true
+        mapToModel: false
     })
         .then(resultado => {
             console.log(`Resultado: ${resultado.length}`);

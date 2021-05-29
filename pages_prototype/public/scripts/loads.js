@@ -12,8 +12,8 @@ function disableButton(button) {
 }
 
 function validateLogin() {
-    var login = document.getElementById('in_login');
-    var password = document.getElementById('in_password');
+    let login = document.getElementById('in_login');
+    let password = document.getElementById('in_password');
 
     if (login.value == '') {
         login.classList.toggle('wrong-input');
@@ -48,15 +48,15 @@ function validateLogin() {
 }
 
 function validateSign() {
-    var name = document.getElementById('in_name');
-    var email = document.getElementById('in_email');
-    var username = document.getElementById('in_login');
-    var password = document.getElementById('in_password');
+    let name = document.getElementById('in_name');
+    let email = document.getElementById('in_email');
+    let username = document.getElementById('in_login');
+    let password = document.getElementById('in_password');
 
 
     if (name.value == '' || !name.value.match(/[A-Z][a-z]* [A-Z][a-z]*/)) {
         name.classList.toggle('wrong-input');
-
+        name.placeholder = 'Digite um nome válido';
         setTimeout(() => {
             name.classList.remove('wrong-input');
         }, 1500);

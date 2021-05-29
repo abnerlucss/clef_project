@@ -40,10 +40,8 @@ function checkInstrumento(userId) {
         .then(resposta => {
             if (resposta.ok) {
                 resposta.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    var recoveryData = JSON.parse(JSON.stringify(resposta));
-
-                    if (recoveryData[0].fkInstrumentoFavorito == null) {
+                
+                    if (resposta.length == 0) {
                         window.location.replace('instrument_select.html');
                     }
                     else {

@@ -5,16 +5,16 @@ function loadChartInstrument() {
             if (resposta.ok) {
                 resposta.json().then(function (resposta) {
 
-                    var instrumentos = [];
-                    var escolhas = [];
+                    let instrumentos = [];
+                    let escolhas = [];
 
-                    for (var i = 0; i < resposta.length; i++) {
+                    for (let i = 0; i < resposta.length; i++) {
                         instrumentos.push(resposta[i].nomeInstrumento);
                         escolhas.push(resposta[i].escolhas);
                     }
 
-                    var context = document.getElementById('instrumentChart').getContext('2d');
-                    var instrumentChart = new Chart(context, {
+                    let context = document.getElementById('instrumentChart').getContext('2d');
+                    let instrumentChart = new Chart(context, {
                         type: 'bar',
                         data: {
                             labels: instrumentos,
@@ -67,16 +67,16 @@ function loadChartStyle() {
             if (resposta.ok) {
                 resposta.json().then(function (resposta) {
 
-                    var estilos = [];
-                    var escolhas = [];
+                    let estilos = [];
+                    let escolhas = [];
 
-                    for (var i = 0; i < resposta.length; i++) {
+                    for (let i = 0; i < resposta.length; i++) {
                         estilos.push(resposta[i].nomeEstilo);
                         escolhas.push(resposta[i].escolhas);
                     }
 
-                    var context = document.getElementById('styleChart').getContext('2d');
-                    var styleChart = new Chart(context, {
+                    let context = document.getElementById('styleChart').getContext('2d');
+                    let styleChart = new Chart(context, {
                         type: 'bar',
                         data: {
                             labels: estilos,
@@ -123,11 +123,11 @@ function loadChartStyle() {
 }
 
 function generateRandomColors(array) {
-    var colors = ['#f9ca24', '#f0932b', '#686de0', '#40739e', '#fff200', '#535c68', '#22a6b3', '#be2edd', '#6ab04c', '#eb4d4b', '#badc58', '#e056fd', '#ffbe76', '#44bd32', '#ffb8b8'];
+    let colors = ['#f9ca24', '#f0932b', '#686de0', '#40739e', '#fff200', '#535c68', '#22a6b3', '#be2edd', '#6ab04c', '#eb4d4b', '#badc58', '#e056fd', '#ffbe76', '#44bd32', '#ffb8b8'];
 
     let randomColors = [];
     for (let i = 0; i < array.length; i++) {
-        var numRandom = parseInt(Math.random() * colors.length);
+        let numRandom = parseInt(Math.random() * colors.length);
         randomColors.push(colors[numRandom]);
         colors.splice(numRandom, 1);
     }

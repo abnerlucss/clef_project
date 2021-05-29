@@ -1,5 +1,7 @@
 .selection-vote {
-    background-color: var(--grey);
+    /* background-color: var(--grey); */
+    /* border-bottom: 2px solid var(--secondary-color);
+    border-top: 2px solid var(--secondary-color); */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     padding: 5%;
@@ -22,9 +24,16 @@
     transition: 0.15s;
     background-repeat: no-repeat;
     background-size: cover;
+    background-image: var(--image-darken), white;
+    box-shadow: 2px 3px 10px -1px var(--black);
+
 }
 
 .card-selection:hover {
     cursor: pointer;
     transform: translate(-2px, -12px);
+}
+
+.selected{
+    border: solid 4px var(--secondary-color);
 }

@@ -38,11 +38,6 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER,
 			allowNull: true
 		},
-		fkEstiloFavorito: {
-			field: 'fkEstiloFavorito',
-			type: DataTypes.INTEGER,
-			allowNull: true
-		}
 	}, 
 	{
 		tableName: 'usuario', 

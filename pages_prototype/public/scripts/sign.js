@@ -1,4 +1,3 @@
-var instrumento;
 var estilo;
 
 // FUNÇÃO QUE FAZ A REQUISIÇÃO DE TODOS OS INSTRUMENTOS CADASTRADOS NO BANCO 
@@ -101,23 +100,33 @@ function generateInstrumentLayout(instruments) {
 // Função acionada pelo onClick que recebe o contexto(objeto) do elemento como parâmetro
 function favorite_instrument_interface(context) {
     //Antes de tudo: pego o elemento pai do contexto e todas as tags span do elemento pai
-    let parent = context.parentNode;
-
+    // let parent = context.parentNode;
     //Pegando os elementos filhos
-    let cards = parent.children;
-
+    // let cards = parent.children;
     // Isso gera uma lista de elementos html
     // Portanto eu seleciono cada elemento da lista e configuro o texto para 'favorite_border'
     // Desse modo, reseto o ícone para o coração sem preenchimento, tal como a borda
-    for (let elem of cards) {
-        elem.style.border = 'none';
-        elem.querySelector('.material-icons').innerHTML = 'favorite_border';
-    }
+    // for (let elem of cards) {
+    // elem.style.border = 'none';
+    // elem.querySelector('.material-icons').innerHTML = 'favorite_border';
+    // elem.querySelector('.material-icons').style.color = 'var(--white)';
+    // }
     // Altera o texto do elemento selecionado(context)
-    context.querySelector('.material-icons').innerHTML = 'favorite';
-    context.style.border = 'solid 3px var(--white)';
+    // context.querySelector('.material-icons').innerHTML = 'favorite';
+    // context.querySelector('.material-icons').style.color = 'var(--secondary-color)';
+    // context.style.border = 'solid 3px var(--secondary-color)';
+    // return instrumento = context.className.split(' ')[1];
+    if (context.classList.contains('selected')) {
+        context.querySelector('.material-icons').innerHTML = 'favorite_border';
+        context.classList.remove('selected');
+    }
+    else {
+        context.querySelector('.material-icons').innerHTML = 'favorite';
+        // context.style.border = 'solid 3px white';
+        context.classList.add('selected');
+        // console.log(favorite_instrument = context.className.split(' ')[1]);
+    }
 
-    return instrumento = context.className.split(' ')[1];
 }
 
 function favorite_style_interface(context) {
@@ -137,12 +146,21 @@ function favorite_style_interface(context) {
 
 // FAZ A REQUISIÇÃO PARA ARMAZENAR NO BANCO O INSTRUMENTO ESCOLHIDO
 function save_data_instrument() {
-    if (instrumento == undefined) {
+    var instrumentosFavoritos = document.getElementsByClassName('selected');
+    if (instrumentosFavoritos.length == 0) {
         alert('Selecione um instrumento');
     } else {
+
+        var arrayIds = [];
+        for (var i = 0; i < instrumentosFavoritos.length; i++) {
+            arrayIds.push(Number(instrumentosFavoritos[i].className.split(' ')[1]));
+        }
+
+        let instruments = JSON.stringify(arrayIds);
+
         active_load_gif();
         disableButton(document.getElementById('btn_save_instrument'));
-        fetch(`/users/saveInstrument/${sessionStorage.id_usuario_meuapp}/${instrumento}`, {
+        fetch(`/users/saveInstrument/${sessionStorage.id_usuario_meuapp}/${instruments}`, {
             method: "POST",
         }).then(function (response) {
 

@@ -1,6 +1,6 @@
 .selection-vote {
     width: 100%;
-    background-color: var(--grey);
+    /* background-color: var(--grey); */
     padding: 5% 5%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
@@ -9,14 +9,16 @@
 }
 
 .card-selection{
+    font-weight: 700;
     height: 50px;
-    border-radius: 5px;
+    border-radius: 3px;
     color: var(--white);
     background-color: var(--secondary-color);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.15s;
+    box-shadow: 2px 3px 10px -1px var(--grey);
 }
 
 .card-selection:hover{

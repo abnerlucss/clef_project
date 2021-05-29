@@ -40,11 +40,11 @@ router.post('/authenticate', function (req, res, next) {
 router.get('/checkInstrument/:idUsuario', function (req, res, next) {
 	console.log('Se o usuário possui instrumento favorito');
 	var idUsuario = req.params.idUsuario;
-	let instrucaoSql = `select * from usuario where idUsuario = ${idUsuario}`;
+	let instrucaoSql = `select fkInstrumento from usuario join favoritarInstrumento on fkUsuario = idUsuario where idUsuario = ${idUsuario};`;
 
 	sequelize.query(instrucaoSql, {
 		model: Usuario,
-		mapToModel: true
+		mapToModel: false
 	})
 		.then(resultado => {
 			console.log(`Encontrados: ${resultado.length}`);
@@ -145,25 +145,28 @@ router.get('/', function (req, res, next) {
 });
 
 // Definir instrumento favorito do usuário
-router.post("/saveInstrument/:idUsuario/:instrumentoUsuario", (req, res, next) => {
+router.post("/saveInstrument/:idUsuario/:instrumentosUsuario", (req, res, next) => {
 	let idUsuario = req.params.idUsuario;
-	let instrumento = req.params.instrumentoUsuario;
+	let instrumentos = req.params.instrumentosUsuario;
 
+	instrumentos = JSON.parse(instrumentos);
 	let sqlInstruction;
 
-	sqlInstruction = `update usuario set fkInstrumentoFavorito = ${instrumento} where idUsuario = ${idUsuario};`;
+	for (let i = 0; i < instrumentos.length; i++) {
+		sqlInstruction = `insert into favoritarInstrumento values (${idUsuario},${instrumentos[i]},default);`;
 
-	sequelize.query(sqlInstruction).then(resultado => {
-		res.send(resultado);
-		console.log(`\n\nRegistro inserido com sucesso!\nO comando executado foi como abaixo:\n`);
-		console.log(sqlInstruction);
-		console.log(`\nFim do comando SQL executado.`);
-		response.status(200).send("Dado inserido com sucesso.");
-	}).catch(erro => {
-		// res.send(resultado);
-		// console.error(erro);
-		// response.status(500).send(erro.message);
-	});
+		sequelize.query(sqlInstruction).then(resultado => {
+			res.send(resultado);
+			console.log(`\n\nRegistro inserido com sucesso!\nO comando executado foi como abaixo:\n`);
+			console.log(sqlInstruction);
+			console.log(`\nFim do comando SQL executado.`);
+			response.status(200).send("Dado inserido com sucesso.");
+		}).catch(erro => {
+			// res.send(resultado);
+			// console.error(erro);
+			// response.status(500).send(erro.message);
+		});
+	}
 });
 
 // Definir instrumento estilo do usuário

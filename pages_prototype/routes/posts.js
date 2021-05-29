@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
         });
 });
 
-/* ROTA QUE RECUPERA CRIA UM POST */
+/* ROTA QUE CRIA UM POST */
 router.post('/addPost/:idUsuario',function(req, res, next) {
     console.log("Iniciando Publicação...");
 
