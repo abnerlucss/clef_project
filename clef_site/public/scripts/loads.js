@@ -54,8 +54,9 @@ function validateSign() {
     let password = document.getElementById('in_password');
 
 
-    if (name.value == '' || !name.value.match(/[A-Z][a-z]* [A-Z][a-z]*/)) {
+    if (name.value == '' || name.value.match(/[0-9]/)) {
         name.classList.toggle('wrong-input');
+        name.value = '';
         name.placeholder = 'Digite um nome válido';
         setTimeout(() => {
             name.classList.remove('wrong-input');
@@ -64,15 +65,18 @@ function validateSign() {
     }
     else if (email.value == '' || !email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
         email.classList.toggle('wrong-input');
+        email.value = '';
+        email.placeholder = 'Digite um email válido';
 
         setTimeout(() => {
             email.classList.remove('wrong-input');
         }, 1500);
         return false;
     }
-    else if (username.value == '') {
+    else if (username.value == '' || username.value.match(/[A-Z]/)) {
         username.classList.toggle('wrong-input');
-
+        username.value = '';
+        username.placeholder = 'Digite um login válido';
         setTimeout(() => {
             username.classList.remove('wrong-input');
         }, 1500);

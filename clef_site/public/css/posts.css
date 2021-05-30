@@ -109,6 +109,10 @@ body {
     align-items: center;
 }
 
+.post-form h2{
+    margin-bottom: 15px;
+}
+
 .custom-textarea {
     font-family: inherit;
     margin: 10px 0;
@@ -116,7 +120,7 @@ body {
     min-width: 100px;
     width: 80%;
     color: var(--black);
-    border: solid 2px var(--primary-color);
+    border: solid 2px var(--secondary-color);
     border-radius: 2px;
     padding: 10px 20px;
     transition: 0.2s;
@@ -127,6 +131,7 @@ body {
 
 .custom-textarea:focus {
     outline: none;
+    border: solid 2px var(--primary-color);
 }
 
 #close-add{
