@@ -18,7 +18,7 @@
     align-items: center;
     justify-content: center;
     transition: 0.15s;
-    box-shadow: 2px 3px 10px -1px var(--grey);
+    /* box-shadow: 2px 3px 10px -1px var(--grey); */
 }
 
 .card-selection:hover{

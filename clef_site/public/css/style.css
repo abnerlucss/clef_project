@@ -134,7 +134,7 @@ body {
     display: inline;
 }
 
-.navbar .navbar-buttons a{
+.navbar .navbar-buttons a {
     height: 6vh;
     text-decoration: none;
 }
@@ -145,10 +145,10 @@ body {
     align-items: center;
 }
 
-
-#exit_icon{
+#exit_icon {
     font-size: 3vh;
 }
+
 /* Botão azul */
 
 .blue-button {
@@ -196,7 +196,6 @@ body {
     justify-content: center;
     margin-bottom: 3%;
     box-shadow: 0px 2px 11px -5px #000;
-
 }
 
 .main-content {
@@ -212,15 +211,19 @@ body {
 }
 
 /* BOXES */
-.boxes{
+
+.boxes {
     display: flex;
     width: 100%;
     height: 60vh;
+    margin-bottom: 10%;
     border-radius: 5px;
     align-items: center;
     justify-content: center;
 }
-.box{
+
+.box {
+    border-radius: 5px;
     margin: 4%;
     color: var(--secondary-color);
     width: 20%;
@@ -228,10 +231,95 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.5s ease-out;
     box-shadow: 0px 2px 11px -5px #000;
 }
 
-.material-icons.large{
+.piano-container {
+    width: 100%;
+    height: 70vh;
+    background-color: var(--black);
+    margin: 8% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+}
+
+.piano-container a .blue-button{
+    height: 6vh;
+}
+
+.piano-container h2 {
+    color: var(--white);
+}
+
+.box:hover {
+    transform: translate(10px, -10px);
+    /* background-color: var(--black); */
+    /* color: var(--white); */
+    cursor: pointer;
+}
+
+.big-box {
+    border-radius: 5px;
+    display: flex;
+    background-color: var(--white);
+    width: 70%;
+    height: 60vh;
+    margin: 3% auto 10% auto;
+    box-shadow: 0px 2px 11px -5px #000;
+    transition: .3s;
+}
+
+.big-box:hover {
+    /* transform: translate(10px, -10px); */
+    width: 71%;
+    height: 61vh;
+}
+
+.box-content {
+    padding: 5%;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.black-button {
+    margin: 20px 5px;
+    height: 4.5vh;
+    margin: .2vw;
+    padding: 0 1vw;
+    border: none;
+    border-radius: 0.3vh;
+    color: var(--white);
+    background-color: var(--black);
+    transition: 0.2s;
+}
+
+.black-button:hover {
+    cursor: pointer;
+}
+
+.img-styles {
+    width: 40%;
+    height: 100%;
+    background-image: url(../img/pictures/img3.jpg);
+    background-size: cover;
+}
+
+.img-instruments {
+    width: 40%;
+    height: 100%;
+    background-image: url(../img/pictures/img1.jpg);
+    background-size: cover;
+}
+
+.material-icons.large {
     font-size: 3.5vw;
 }
 
@@ -265,9 +353,7 @@ section {
 }
 
 @media(max-width: 500px) {
-    .navbar{
+    .navbar {
         display: none;
     }
 }
-
-

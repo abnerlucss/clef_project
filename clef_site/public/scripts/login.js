@@ -2,7 +2,7 @@ function login() {
     var validation = validateLogin();
     if (validation == true) {
         active_load_gif();
-        disableButton(document.getElementById('btn_login'));
+
         let form = new URLSearchParams(new FormData(form_login));
         fetch("/users/authenticate", {
             method: "POST",
@@ -26,7 +26,9 @@ function login() {
 
                 response.text().then(error_desc => {
                     console.error(error_desc);
-                    finalize_load(error_desc);
+                    error_msg.innerHTML = 'Login ou senha inválidos';
+                    error_msg.style.display = 'block';
+                    finalize_load_gif();
                 });
             }
         });
